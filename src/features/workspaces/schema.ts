@@ -9,7 +9,7 @@ export const createWorkspaceSchema = z.object({
     .optional()
 })
 
-export const updateWorkspaceSchema = z.object({
+export const editWorkspaceSchema = z.object({
     name: z.string().trim().min(1, "Must be 1 for more characters").optional(),
     image: z.union([
         z.instanceof(File),
