@@ -4,10 +4,10 @@ import { InferRequestType, InferResponseType } from "hono";
 
 import { client } from "@/lib/rpc";
 
-type ResponseType = InferResponseType<typeof client.api.workspaces["$post"]>;
-type RequestType = InferRequestType<typeof client.api.workspaces["$post"]>;
+type ResponseType = InferResponseType<typeof client.api.projects["$post"], 200>;
+type RequestType = InferRequestType<typeof client.api.projects["$post"]>;
 
-export const useCreateWorkspace = () => {
+export const useCreateProject = () => {
 
     const queryClient = useQueryClient();
     
@@ -17,20 +17,20 @@ export const useCreateWorkspace = () => {
         RequestType
     >({
         mutationFn: async ({ form }) => {
-            const response = await client.api.workspaces["$post"]({
+            const response = await client.api.projects["$post"]({
                 form
             })
             if(!response.ok) {
-                throw new Error("Failed to create workspace")
+                throw new Error("Failed to create project")
             }
             return await response.json()
         },
         onSuccess: () => {
-            toast.success("Workspace created")
-            queryClient.invalidateQueries({ queryKey: ["workspaces"] })
+            toast.success("Project created")
+            queryClient.invalidateQueries({ queryKey: ["projects"] })
         },
         onError: () => {
-            toast.error("Error creating workspace")
+            toast.error("Error creating project")
         }
     })
 
