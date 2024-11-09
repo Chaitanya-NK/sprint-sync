@@ -26,7 +26,7 @@ const app = new Hono()
             })
 
             if(!member) {
-                return c.json({ error: "Unauthorized" }, { status: 401 })
+                return c.json({ error: "Unauthorized" }, 401)
             }
 
             const members = await databases.listDocuments(
