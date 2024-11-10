@@ -4,7 +4,6 @@ import {
     Client,
     Account,
     Databases,
-    Storage,
     Users
 } from "node-appwrite"
 import { cookies } from "next/headers";
@@ -17,7 +16,7 @@ export async function createSessionClient() {
 
     const session = await cookies().get(AUTH_COOKIE);
 
-    if(!session || !session.value) {
+    if (!session || !session.value) {
         throw new Error("Unauthorized")
     }
 
@@ -38,7 +37,7 @@ export async function createAdminClient() {
         .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
         .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!)
         .setKey(process.env.NEXT_APPWRITE_KEY!)
-    
+
     return {
         get account() {
             return new Account(client)

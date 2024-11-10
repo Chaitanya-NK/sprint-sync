@@ -15,6 +15,8 @@ import {
 import { FolderIcon, ListChecksIcon, UserIcon } from "lucide-react";
 import { TaskStatus } from "../types";
 import { useTaskFilters } from "../hooks/use-task-filters";
+import { Project } from "@/features/projects/types";
+import { Member } from "@/features/members/type";
 
 interface DataFiltersProps {
     hideProjectFilters?: boolean;
@@ -32,12 +34,12 @@ export const DataFilters = ({ hideProjectFilters }: DataFiltersProps) => {
 
     const isLoading = isLoadingProjects || isLoadingMembers;
 
-    const projectOptions = projects?.documents.map((project: any) => ({
+    const projectOptions = projects?.documents.map((project: Project) => ({
         value: project.$id,
         label: project.name,
     }));
 
-    const memberOptions = members?.documents.map((member: any) => ({
+    const memberOptions = members?.documents.map((member: Member) => ({
         value: member.$id,
         label: member.name,
     }));
@@ -110,7 +112,7 @@ export const DataFilters = ({ hideProjectFilters }: DataFiltersProps) => {
                 <SelectContent>
                     <SelectItem value="all">All assignees</SelectItem>
                     <SelectSeparator />
-                    {memberOptions?.map((member: any) => (
+                    {memberOptions?.map((member: Member) => (
                         <SelectItem key={member.value} value={member.value}>
                             {member.label}
                         </SelectItem>
@@ -131,7 +133,7 @@ export const DataFilters = ({ hideProjectFilters }: DataFiltersProps) => {
                     <SelectContent>
                         <SelectItem value="all">All projects</SelectItem>
                         <SelectSeparator />
-                        {projectOptions?.map((project: any) => (
+                        {projectOptions?.map((project: Project) => (
                             <SelectItem
                                 key={project.value}
                                 value={project.value}

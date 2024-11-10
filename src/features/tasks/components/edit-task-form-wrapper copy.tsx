@@ -5,6 +5,8 @@ import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { Loader } from "lucide-react";
 import { useGetTask } from "../api/use-get-task";
 import { EditTaskForm } from "./edit-task-form";
+import { Project } from "@/features/projects/types";
+import { Member } from "@/features/members/type";
 
 interface EditTaskFormWrapperProps {
     onCancel: () => void;
@@ -27,13 +29,13 @@ export const EditTaskFormWrapper = ({
         workspaceId,
     });
 
-    const projectOptions = projects?.documents.map((project: any) => ({
+    const projectOptions = projects?.documents.map((project: Project) => ({
         id: project.$id,
         name: project.name,
         imageUrl: project.imageUrl,
     }));
 
-    const memberOptions = members?.documents.map((member: any) => ({
+    const memberOptions = members?.documents.map((member: Member) => ({
         id: member.$id,
         name: member.name,
     }));

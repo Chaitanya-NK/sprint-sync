@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useDeleteMember } from "@/features/members/api/use-delete-member";
 import { useUpdateMember } from "@/features/members/api/use-update-member";
-import { MemberRole } from "@/features/members/type";
+import { Member, MemberRole } from "@/features/members/type";
 import { useConfirm } from "@/hooks/use-confirm";
 
 export const MembersList = () => {
@@ -76,7 +76,7 @@ export const MembersList = () => {
                 <DottedSeparator />
             </div>
             <CardContent className="p-7">
-                {data?.documents.map((member: any, index: any) => (
+                {data?.documents.map((member: Member, index: number) => (
                     <Fragment key={member.$id}>
                         <div className="flex items-center gap-2">
                             <MemberAvatar

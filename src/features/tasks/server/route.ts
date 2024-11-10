@@ -107,7 +107,7 @@ const app = new Hono()
                     const user = await users.get(member.userId);
                     return {
                         ...member,
-                        name: user.name,
+                        name: user.name || user.email,
                         email: user.email
                     }
                 })
@@ -325,7 +325,7 @@ const app = new Hono()
 
             const assignee = {
                 ...member,
-                name: user.name,
+                name: user.name || user.email,
                 email: user.email 
             }
 
@@ -369,7 +369,11 @@ const app = new Hono()
                 return c.json( { error: "All tasks must belong to the same workspace" } )
             }
 
-            const workspaceId: any = workspaceIds.values().next().value
+            const workspaceId = workspaceIds.values().next().value
+
+            if(!workspaceId) {
+                return c.json({ error: "WorkspaceId required" }, 401)
+            }
             
             const member = await getMember({
                 databases,

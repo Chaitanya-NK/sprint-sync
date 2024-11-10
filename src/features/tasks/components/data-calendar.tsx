@@ -42,7 +42,7 @@ interface CustomToolbarProps {
 
 const CustomToolbar = ({ date, onNavigate }: CustomToolbarProps) => {
     return (
-        <div className="flex mb-4 gap-x-2 items-center w-full lg: w-auto justify-center lg:justify-start">
+        <div className="flex mb-4 gap-x-2 items-center w-full lg:w-auto justify-center lg:justify-start">
             <Button
                 onClick={() => onNavigate("PREV")}
                 variant="secondary"

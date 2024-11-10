@@ -24,7 +24,6 @@ import {
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { cn } from "@/lib/utils";
 import { DatePicker } from "@/components/date-picker";
 import { MemberAvatar } from "@/features/members/components/member-avatar";
@@ -46,7 +45,6 @@ export const EditTaskForm = ({
     initialValues
 }: EditTaskFormProps) => {
 
-    const workspaceId = useWorkspaceId()
     const { mutate, isPending } =  useUpdateTask();
 
     const form = useForm<z.infer<typeof createTaskSchema>>({
@@ -60,7 +58,7 @@ export const EditTaskForm = ({
     const onSubmit = (values: z.infer<typeof createTaskSchema>) => {
 
         mutate({ json: values, param: { taskId: initialValues.$id } }, {
-            onSuccess: ({ data }: any) => {
+            onSuccess: () => {
                 form.reset();
                 onCancel?.()
             }

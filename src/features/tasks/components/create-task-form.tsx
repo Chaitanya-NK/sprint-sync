@@ -57,7 +57,7 @@ export const CreateTaskForm = ({
     const onSubmit = (values: z.infer<typeof createTaskSchema>) => {
 
         mutate({ json: { ...values, workspaceId } }, {
-            onSuccess: ({ data }: any) => {
+            onSuccess: () => {
                 form.reset();
                 onCancel?.()
             }

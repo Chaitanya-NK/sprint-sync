@@ -12,7 +12,7 @@ import { TaskViewSwitcher } from "@/features/tasks/components/task-view-switcher
 import { PencilIcon } from "lucide-react";
 import Link from "next/link";
 
-export const ProjectIdClient = async () => {
+export const ProjectIdClient = () => {
 
     const projectId = useProjectId()
     const { data: project, isLoading: isLoadingProject } = useGetProject({ projectId })
