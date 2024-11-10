@@ -15,7 +15,7 @@ const StandaloneLayout = ({ children }: StandaloneLayoutProps) => {
                         href="/"
                     >
                         <Image
-                            src="/logo.svg"
+                            src="/sprint_sync_logo.svg"
                             alt="Logo"
                             width={152}
                             height={56}

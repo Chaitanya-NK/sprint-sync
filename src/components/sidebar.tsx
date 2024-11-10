@@ -10,7 +10,7 @@ export const Sidebar = () => {
         <aside className="h-full bg-neutral-100 p-4 w-full">
             <Link href="/">
                 <Image 
-                    src="/logo.svg"
+                    src="/sprint_sync_logo.svg"
                     alt="sprint-sync"
                     width={164}
                     height={48}
