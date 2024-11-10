@@ -8,8 +8,8 @@ import { OAuthProvider } from "node-appwrite";
 export async function signUpWithGithub() {
 	const { account } = await createAdminClient();
 
-  	const origin = process.env.NEXT_PUBLIC_APP_URL
-  
+	const origin = headers().get("origin");
+
 	const redirectUrl = await account.createOAuth2Token(
 		OAuthProvider.Github,
 		`${origin}/oauth`,
@@ -22,8 +22,8 @@ export async function signUpWithGithub() {
 export async function signUpWithGoogle() {
 	const { account } = await createAdminClient();
 
-	const origin = process.env.NEXT_PUBLIC_APP_URL
-  
+	const origin = headers().get("origin");
+
 	const redirectUrl = await account.createOAuth2Token(
 		OAuthProvider.Google,
 		`${origin}/oauth`,
