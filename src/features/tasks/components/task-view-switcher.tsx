@@ -111,7 +111,7 @@ export const TaskViewSwitcher = ({
                                 data={tasks?.documents ?? []}
                             />
                         </TabsContent>
-                        <TabsContent value="calender" className="mt-0 h-full pb-4">
+                        <TabsContent value="calender" className="mt-0 h-full pb-4 sm:hidden">
                             <DataCalendar
                                 data={tasks?.documents ?? []}
                             />
