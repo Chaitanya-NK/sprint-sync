@@ -16,7 +16,7 @@ export const Sidebar = () => {
                     height={48}
                 />
             </Link>
-            <DottedSeparator className="my-4" />
+            <DottedSeparator className="mb-4" />
             <WorkspaceSwitcher />
             <DottedSeparator className="my-4" />
             <Navigation />
