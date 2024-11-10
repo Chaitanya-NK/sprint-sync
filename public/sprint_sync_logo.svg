@@ -1,10 +1,10 @@
-<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+<svg width="150" height="75" xmlns="http://www.w3.org/2000/svg">
   <!-- Blue circle with white thunderbolt -->
-  <circle cx="30" cy="20.5" r="10.5" fill="#007BFF" />
-  <polygon points="28,7 22,20.5 31,20.5 25,32.5 37,20.5 30,20.5" fill="#FFFFFF" />
+  <circle cx="30" cy="30" r="20" fill="#007BFF" />
+  <polygon points="28,15 22,30 31,30 25,45 37,30 30,30" fill="#FFFFFF" />
 
   <!-- "Sprint Sync" text beside the logo -->
-  <text x="45" y="26" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#000000">
-    SPRINT SYNC
+  <text x="60" y="35" font-family="Arial, sans-serif" font-size="18" fill="#000000">
+    Sprint Sync
   </text>
 </svg>
