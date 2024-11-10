@@ -75,7 +75,7 @@ export const TaskViewSwitcher = ({
                             Kanban
                         </TabsTrigger>
                         <TabsTrigger
-                            className="h-8 w-full lg:w-auto"
+                            className="h-8 w-full lg:w-auto lg:block hidden"
                             value="calender"
                         >
                             Calender
@@ -111,7 +111,7 @@ export const TaskViewSwitcher = ({
                                 data={tasks?.documents ?? []}
                             />
                         </TabsContent>
-                        <TabsContent value="calender" className="mt-0 h-full pb-4 lg:block hidden">
+                        <TabsContent value="calender" className="mt-0 h-full pb-4">
                             <DataCalendar
                                 data={tasks?.documents ?? []}
                             />
